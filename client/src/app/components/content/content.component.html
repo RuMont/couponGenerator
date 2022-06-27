@@ -1,0 +1,60 @@
+<main class="container">
+    <div *ngIf="status == 200 else nostatus">
+
+        <div class="titleAndButton">
+            <h3 class="title">Generating {{this.configService.Quantity}} coupons in {{this.configService.Algorithm}}
+                mode</h3>
+            <button class="change" (click)="toggleModal()">Change</button>
+            <app-modal *ngIf="showModal"></app-modal>
+        </div>
+
+        <div *ngIf="this.configService.Algorithm == 'sequence'">
+            <form (ngSubmit)="onSubmitSequenced()" ngNativeValidate>
+                <div class="inputs">
+                    <div class="form-group">
+                        <label for="valueLength">How many digits the coupons are going to have?</label>
+                        <input type="number" name="valueLength" [(ngModel)]="valueLength" id="valueLength"
+                            placeholder="Enter a number" min="0" max="25" required #value="ngModel">
+                    </div>
+                    <div class="form-group">
+                        <label for="valueLength">Specify a starting value</label>
+                        <input type="number" name="startValue" [(ngModel)]="startValue" id="startValue"
+                            placeholder="Enter a number" min="0" required>
+                    </div>
+                </div>
+                <div *ngIf="error == 1" class="error">
+                    The number of digits needs to be at least equal than the number of digits of the starting value
+                </div>
+                <div *ngIf="error == 2" class="error">
+                    The number of digits cannot be 0
+                </div>
+                <button type="submit">Generate</button>
+            </form>
+        </div>
+
+        <div *ngIf="this.configService.Algorithm == 'random'">
+            <form (ngSubmit)="onSubmitRandom()" ngNativeValidate>
+                <div class="form-group">
+                    <label for="valueLength">How many digits the coupon is going to have?</label>
+                    <input type="number" name="valueLength" [(ngModel)]="valueLength" id="valueLength"
+                        placeholder="Enter a number" min="0" max="25" required>
+                </div>
+                <div *ngIf="error == 2" class="error">
+                    The number of digits cannot be 0
+                </div>
+                <button type="submit">Generate</button>
+            </form>
+        </div>
+
+        <div class="couponContainer">
+            <app-coupon *ngFor="let coupon of coupons" couponValue="{{coupon}}"></app-coupon>
+        </div>
+
+    </div>
+
+    <ng-template #nostatus>
+        <ng-container>
+            Service temporarily unavailable
+        </ng-container>
+    </ng-template>
+</main>

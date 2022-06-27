@@ -1,0 +1,8 @@
+footer {
+    font-family: var(--font-normal);
+    display: flex;
+    flex-direction: column;
+}
+footer div {
+    margin-inline: auto;
+}

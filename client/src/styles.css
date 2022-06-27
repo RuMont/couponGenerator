@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+
+:root {
+    --font-normal: 'PT Sans Narrow', sans-serif;
+    --bg-color: #160127;
+    --primary-color: #51557E;
+    --primary-color-50: #51557e80;
+    --secondary-color: #816797;
+    --secondary-color-50: #81679780;
+    --accent-color: #D6D5A8;
+    --white: #FFFFFF;
+    --fail-color: #FF5252;
+    --success-color: #4CAF50;
+}
+
+html, body, app-root {
+    height: 98%;
+    display: flex;
+    flex-direction: column;
+}
+
+app-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+}
+
+main {
+    flex: 1;
+}
+
+body {
+    font-family: var(--font-normal);
+    width: 80vw;
+    margin-inline: auto;
+    font-size: 20px;
+    line-height: 1.5;
+    background-color: var(--bg-color);
+    color: var(--white);
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color-50);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}

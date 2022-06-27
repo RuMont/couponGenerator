@@ -1,0 +1,29 @@
+<div class="modal-container">
+    <div class="modal">
+        <div class="modal-header">
+            <h3>Setting up new config</h3>
+        </div>
+        <form (ngSubmit)="onSubmit()" ngNativeValidate>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label for="quantity">Amount of coupons to generate</label>
+                    <input type="number" name="quantity" id="quantity" [(ngModel)]="this.configService.Quantity" min="0" max="25">
+                </div>
+
+                <div class="form-group">
+                    <label for="algorithm">Generation mode</label>
+                    <select name="algorithm" id="algorithm" [(ngModel)]="this.configService.Algorithm">
+                        <option *ngFor="let alg of this.configService.algorithms" [selected]="alg === this.configService.Algorithm" [value]="alg">
+                            {{alg | titlecase}} mode
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="dismiss" (click)="dismiss()">Dismiss</button>
+                <button type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+</div>

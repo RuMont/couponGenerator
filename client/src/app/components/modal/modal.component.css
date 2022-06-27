@@ -1,0 +1,96 @@
+.modal-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.415);
+}
+
+h3 {
+    margin-block: 0.25rem;
+}
+
+.modal {
+    position: absolute;
+    color: var(--white);
+    background-color: var(--secondary-color);
+    max-width: 300px;
+    top: 5rem;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+.modal-header {
+    background-color: var(--primary-color);
+    border-radius: 5px 5px 0 0;
+    padding: 1rem;
+    height: 100%;
+}
+
+.modal-footer {
+    border-radius: 0 0 5px 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.5rem;
+    height: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+form .dismiss {
+    margin-inline: auto;
+    background-color: transparent;
+    font-family: var(--font-normal);
+    border-radius: 5px;
+    color: var(--fail-color);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.5rem;
+    max-width: 250px;
+    border-width: 0px;
+}
+
+form .dismiss:hover {
+    text-decoration: underline;
+}
+
+form [type="submit"] {
+    margin-inline: auto;
+    background-color: var(--accent-color);
+    font-family: var(--font-normal);
+    border-radius: 5px;
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.5rem;
+    min-width: 150px;
+    max-width: 250px;
+    border-width: 0px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.form-group input, .form-group select {
+    margin-top: 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-family: var(--font-normal);
+    font-size: 1rem;
+    outline: none;
+}
